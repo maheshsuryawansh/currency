@@ -237,7 +237,7 @@ var DashboardComponent = (function () {
             _this.user.name = params.name;
         });
         //console.log(this.user._id);
-        this.http.get("http://localhost:4000/personlist/" + this.user._id, this.user.name).subscribe(function (data) {
+        this.http.get("https://maheshcurrency.herokuapp.com/" + this.user._id, this.user.name).subscribe(function (data) {
             _this.users = data.json();
             console.log(_this.users);
         }, function (err) {
@@ -248,7 +248,7 @@ var DashboardComponent = (function () {
     };
     DashboardComponent.prototype.logout = function () {
         var _this = this;
-        this.http.get("http://localhost:4000/logout/").subscribe(function (data) {
+        this.http.get("https://maheshcurrency.herokuapp.com/logout/").subscribe(function (data) {
             console.log(data);
             if (data) {
                 _this.router.navigate(['/Logout']);
@@ -262,7 +262,7 @@ var DashboardComponent = (function () {
         this.currencyformModel.name = this.user.name;
         this.currencyformModel.currencyName = this.currencyName;
         //console.log(this.currencyName);
-        this.http.post("http://localhost:4000/currencies", this.currencyformModel).subscribe(function (data) {
+        this.http.post("https://maheshcurrency.herokuapp.com/currencies", this.currencyformModel).subscribe(function (data) {
             //console.log(data);
         }, function (err) {
             console.log(err);
@@ -488,7 +488,7 @@ var RegistrationComponent = (function () {
             console.log(params);
             if (params.id) {
                 //alert("ID present");
-                _this.http.get("http://localhost:4000/userlist/" + params.id).subscribe(function (updateperson) {
+                _this.http.get("https://maheshcurrency.herokuapp.com/userlist/" + params.id).subscribe(function (updateperson) {
                     _this.registrationformModel = updateperson.json();
                 }, function (err) {
                     console.log(err);
@@ -504,7 +504,7 @@ var RegistrationComponent = (function () {
     RegistrationComponent.prototype.submitForm = function (myForm, data) {
         this.submitted = true;
         // Send Form Data(registrationformModel) to Server
-        this.http.post("http://localhost:4000/submit", this.registrationformModel).subscribe(function (data) {
+        this.http.post("https://maheshcurrency.herokuapp.com/submit", this.registrationformModel).subscribe(function (data) {
             console.log(data);
         }, function (err) {
             console.log(err);
