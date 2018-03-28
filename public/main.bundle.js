@@ -213,7 +213,7 @@ var DashboardComponent = (function () {
         this.selectedCurrency = 0;
         this.currencyformModel = {};
         this.currencyName = {};
-        this.http.get("http://openexchangerates.org/api/latest.json/?app_id=3ed2a10310934d24b2362107e4cdf3ff").subscribe(function (getcurrency) {
+        this.http.get("https://openexchangerates.org/api/latest.json/?app_id=3ed2a10310934d24b2362107e4cdf3ff").subscribe(function (getcurrency) {
             var currencyRates = getcurrency.json();
             //console.log(currencyRates.rates);
             for (var x in currencyRates.rates) {
