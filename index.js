@@ -19,7 +19,7 @@ app.use(express.static('public'));
 
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/mahesh1');
+mongoose.connect('mongodb://mahesh:thinkgreen@ds127139.mlab.com:27139/currencydb');
 var Users = [];
 var personSchema = mongoose.Schema({
    name: String,
